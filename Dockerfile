@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip uninstall decouple && pip3 install -r requirements.txt
 
 CMD [ "python3", "web.py"]
