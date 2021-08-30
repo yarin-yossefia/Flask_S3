@@ -17,7 +17,18 @@ def GetFile():
     return render_template('index.html', error=error)
 @app.route('/Download_file', methods=["POST"])
 def download():
-    file1 = request.form["File"].strip()
-    s3.Download_file(id_env, key_env, file1)
-    return redirect("/file")
+    error=""
+    try:
+        file1 = request.form["File"].strip()
+        s3.Download_file(id_env, key_env, file1)
+    except s3.FileNotExist:
+        error = "FileNotExist"
+    if(error):
+        return redirect(f"/file?error={error}")
+    else:
+        return redirect('/success')
+@app.route('/success')
+def Downloaded():
+    return render_template('index2.html')  
+
 app.run(host='0.0.0.0', port=80, debug=True)

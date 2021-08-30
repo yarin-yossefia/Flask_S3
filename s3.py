@@ -20,6 +20,5 @@ def Download_file(id,key,file):
     try:
         s3.Bucket('dcdevopstask').download_file(full_path, file)
         print("{} downloaded".format(full_path))
-    except botocore.exceptions.ClientError as e:
-        if e.response['Error']['Code'] == "404":
-            raise FileNotExist("the file not exist")
+    except:
+        raise FileNotExist("the file not exist")
