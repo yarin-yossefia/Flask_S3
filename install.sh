@@ -19,5 +19,7 @@ printf '\nDocker Compose installed successfully\n\n'
 mkdir project && cd project
 git clone https://github.com/lironham/Flask_s3.git
 cd Flask_s3
-mv ../../.env .
+cp ../../.env .
 docker-compose up -d --build
+#test application
+curl localhost/file
