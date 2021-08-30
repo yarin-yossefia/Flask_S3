@@ -2,10 +2,10 @@ import s3
 from flask import Flask, render_template, redirect, request, jsonify
 import s3
 import os
-from dotenv import load_dotenv
-load_dotenv()
-key_env  =os.getenv('SECRET_ACCESS_KEY')
-id_env  =os.getenv('_ACCESS_KEY_ID')
+from dotenv import dotenv_values
+temp = dotenv_values(".env")
+key_env  =temp['SECRET_ACCESS_KEY']
+id_env  =temp['_ACCESS_KEY_ID']
 app = Flask(__name__)
 @app.route('/file')
 def GetFile():
