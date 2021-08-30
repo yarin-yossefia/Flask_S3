@@ -1,11 +1,11 @@
+from werkzeug.datastructures import TypeConversionDict
 import s3
 from flask import Flask, render_template, redirect, request, jsonify
 import s3
 import os
-from dotenv import dotenv_values
-temp = dotenv_values(".env")
-key_env  =temp['SECRET_ACCESS_KEY']
-id_env  =temp['_ACCESS_KEY_ID']
+from os import environ
+key_env  =environ.get('SECRET_ACCESS_KEY')
+id_env  =environ.get('_ACCESS_KEY_ID')
 app = Flask(__name__)
 @app.route('/file')
 def GetFile():
