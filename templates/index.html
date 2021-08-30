@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS - S3</title>
+    <link rel= "stylesheet" type= "text/css" href= "/static/main.css">
+</head>
+<body>
+<h1>s3-find filer</h1>
+<br>
+{% if error %}
+ <h2> {{ error }} </h2>
+{% endif %}
+
+<form action="/Download_file" method="POST">
+    <input type="text" name="Id" placeholder="Enter ID: " required>
+    <input type="text" name="Key" placeholder="Enter Key: " required>
+    <input type="text" name="File" placeholder="Enter File Name : " required>
+    <input type="submit" value="Create" >
+</form>
+<a href="/"  style="position: fixed; left: 0; top: 8%;">
+    <input type="button" value="Home" />
+</a>
+</body>
+</html>
