@@ -1,2 +1,2 @@
-class FileNotExist(Exception):
+class FileNotExist(Exception): 
     pass
